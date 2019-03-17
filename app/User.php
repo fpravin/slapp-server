@@ -6,10 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -37,4 +38,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the detail record associated with the user.
+     */
+    public function detail()
+    {
+        return $this->hasOne('App\Details');
+    }
+
+
+    public function favourites()
+    {
+        return $this->hasMany('App\Favourite');
+    }
+
+    public function recommendations()
+    {
+        return $this->hasMany('App\Recomendation');
+    }
 }

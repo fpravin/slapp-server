@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Offer extends Model
 {
     //
     use SoftDeletes;
@@ -16,6 +16,14 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'category'
+        'description', 'expires_at', 'place_id'
     ];
+
+    /**
+     * Get the place that owns the offer.
+     */
+    public function place()
+    {
+        return $this->belongsTo('App\Place');
+    }
 }

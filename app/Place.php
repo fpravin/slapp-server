@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Place extends Model
 {
     //
     use SoftDeletes;
@@ -16,6 +16,11 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'category'
+        'name', 'description', 'latlang', 'address', 'rating'
     ];
+
+    public function offers()
+    {
+        return $this->hasMany('App\Offer');
+    }
 }

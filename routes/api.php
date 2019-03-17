@@ -28,6 +28,8 @@ Route::group([
     ], function() {
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
+
+        Route::patch('category/{id}', 'API\CategoryController@restore');
         Route::resource('category', 'API\CategoryController');
     });
 });
