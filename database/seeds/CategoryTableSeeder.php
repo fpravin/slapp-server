@@ -22,5 +22,8 @@ class CategoryTableSeeder extends Seeder
         DB::table('categories')->insert([
             'category' => 'Shopping',
         ]);
+        DB::table('categories')->insert([
+            'category' => 'Coffee Shop',
+        ]);
     }
 }

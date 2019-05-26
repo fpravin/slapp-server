@@ -14,9 +14,22 @@ class UserTableSeeder extends Seeder
     {
         //
         DB::table('users')->insert([
-            'name' => 'Kewin',
-            'email' => 'kewin@gmail.com',
-            'password' => '$2y$10$qT0fwgz5EzC5uB8ErvAVAuz5oZ56Olj6Yu250cEZxAL1aUROjlKyW'
+            'name' => 'Kewin SA',
+            'email' => 'test1@gmail.com',
+            'password' => '$2y$10$qT0fwgz5EzC5uB8ErvAVAuz5oZ56Olj6Yu250cEZxAL1aUROjlKyW',
+            'f_code' => 'F00'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Kewin PA',
+            'email' => 'test2@gmail.com',
+            'password' => '$2y$10$qT0fwgz5EzC5uB8ErvAVAuz5oZ56Olj6Yu250cEZxAL1aUROjlKyW',
+            'f_code' => 'F100'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Kewin AU',
+            'email' => 'test3@gmail.com',
+            'password' => '$2y$10$qT0fwgz5EzC5uB8ErvAVAuz5oZ56Olj6Yu250cEZxAL1aUROjlKyW',
+            'f_code' => 'F200'
         ]);
     }
 }
