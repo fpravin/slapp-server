@@ -23,6 +23,9 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
 
+    // Route::patch('category/{id}', 'API\CategoryController@restore');
+    // Route::resource('category', 'API\CategoryController');
+
     Route::group([
         'middleware' => ['auth:api', 'cors']
     ], function () {
@@ -31,6 +34,8 @@ Route::group([
 
         Route::patch('category/{id}', 'API\CategoryController@restore');
         Route::resource('category', 'API\CategoryController');
+        // Route::patch('category/{id}', 'API\CategoryController@restore');
+        // Route::resource('category', 'API\CategoryController');
 
         Route::patch('place/{id}', 'API\PlaceController@restore');
         Route::resource('place', 'API\PlaceController');
