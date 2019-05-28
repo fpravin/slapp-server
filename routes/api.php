@@ -23,8 +23,8 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
 
-    Route::patch('category/{id}', 'API\CategoryController@restore');
-    Route::resource('category', 'API\CategoryController');
+    // Route::patch('category/{id}', 'API\CategoryController@restore');
+    // Route::resource('category', 'API\CategoryController');
 
     Route::group([
         'middleware' => ['auth:api', 'cors']
@@ -32,6 +32,8 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
 
+        Route::patch('category/{id}', 'API\CategoryController@restore');
+        Route::resource('category', 'API\CategoryController');
         // Route::patch('category/{id}', 'API\CategoryController@restore');
         // Route::resource('category', 'API\CategoryController');
 
@@ -39,5 +41,12 @@ Route::group([
         Route::resource('place', 'API\PlaceController');
 
         Route::resource('recomendation', 'API\RecommendationController');
+
+        Route::patch('favourite/toggle', 'API\FavouriteController@toggleFavourite');
+        Route::resource('favourite', 'API\FavouriteController');
+        // Route::resource('favourite', 'API\FavouriteController')->except([
+        //     'index'
+        // ]);
+        // Route::get('favourite/{userId?}', 'API\FavouriteController@index');
     });
 });

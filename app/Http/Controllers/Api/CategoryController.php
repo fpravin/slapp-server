@@ -48,9 +48,7 @@ class CategoryController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-
         $category = Category::create($input);
-
 
         return $this->sendResponse($category->toArray(), 'Category created successfully.');
     }
